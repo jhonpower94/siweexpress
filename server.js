@@ -18,7 +18,12 @@ const projectId = process.env.PROJECT_ID;
 const app = express();
 
 // configure cors and sessions
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:5174", // frontend URL
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use(
   Session({
@@ -74,6 +79,7 @@ app.post("/verify", async (req, res) => {
           // throw an error if the signature is invalid
           throw new Error("Invalid signature");
         }
+        
       });
     // end o view verifyMessage
 
