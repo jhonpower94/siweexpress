@@ -20,7 +20,7 @@ const app = express();
 // configure cors and sessions
 app.use(
   cors({
-    origin: "http://localhost:5174", // frontend URL
+    origin: "https://connectserver.web.app", // frontend URL
     credentials: true,
   })
 );
